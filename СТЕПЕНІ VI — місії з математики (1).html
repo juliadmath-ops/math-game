@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>СТЕПЕНІ VI — місії з математики</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Russo+One&family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a0a33;--pink:#ff3da6;--cyan:#2ef2ff;--sun:#ffc233;--paper:#fff3fb;--ok:#3dffb0;--bad:#ff4d6d;--panel:rgba(22,7,45,.82);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Rubik,system-ui,sans-serif;color:var(--paper);background:linear-gradient(180deg,#1b0b3a 0%,#5b1a8c 38%,#e8368f 72%,#ff9a3c 100%) fixed;overflow-x:hidden}
+.sun{position:fixed;left:50%;bottom:-70px;width:min(420px,80vw);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:linear-gradient(#ffd23f,#ff4fa3);z-index:-1;opacity:.9;
+-webkit-mask-image:linear-gradient(#000 52%,transparent 52% 58%,#000 58% 68%,transparent 68% 75%,#000 75% 84%,transparent 84% 92%,#000 92%);mask-image:linear-gradient(#000 52%,transparent 52% 58%,#000 58% 68%,transparent 68% 75%,#000 75% 84%,transparent 84% 92%,#000 92%)}
+main{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-family:'Russo One',Impact,sans-serif;font-size:clamp(44px,13vw,92px);line-height:.95;margin:18px 0 6px;font-style:italic;letter-spacing:1px;color:#fff;
+text-shadow:3px 3px 0 var(--ink),-3px -3px 0 var(--ink),3px -3px 0 var(--ink),-3px 3px 0 var(--ink),0 0 24px rgba(255,61,166,.7)}
+h1 b{background:linear-gradient(180deg,#ff3da6,#ff9a3c);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;filter:drop-shadow(0 0 14px rgba(255,61,166,.7))}
+.tag{font-size:17px;margin:0 0 18px;opacity:.95}
+.panel{background:var(--panel);border:2px solid var(--pink);border-radius:14px;padding:16px;box-shadow:0 0 0 2px var(--ink),0 0 26px rgba(255,61,166,.4)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-family:'Russo One',sans-serif}
+.cash{color:var(--ok);font-size:20px}
+.stars{font-size:22px;letter-spacing:3px}.stars .on{color:var(--bad);text-shadow:0 0 10px var(--bad)}.stars .off{color:#6d5a8f}
+.missions{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.m{display:flex;gap:12px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:var(--panel);border:2px solid var(--cyan);border-radius:12px;padding:12px 14px;cursor:pointer}
+.m:hover:not(:disabled){background:rgba(46,242,255,.14)}
+.m:disabled{border-color:#5b4a7e;opacity:.55;cursor:not-allowed}
+.m .n{font-family:'Russo One',sans-serif;font-size:30px;color:var(--sun);min-width:34px}
+.m .t{font-weight:700;font-size:18px}.m .s{font-size:14px;opacity:.85}
+.m .r{margin-left:auto;font-family:'Russo One',sans-serif;font-size:14px;color:var(--ok);white-space:nowrap}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.btn{font-family:'Russo One',sans-serif;font-size:18px;color:var(--ink);background:linear-gradient(90deg,var(--sun),#ff7a59);border:0;border-radius:10px;padding:13px 22px;cursor:pointer;box-shadow:0 4px 0 var(--ink)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
+.btn.ghost{background:transparent;color:var(--paper);border:2px solid var(--paper);box-shadow:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+details{margin-top:16px}summary{cursor:pointer;font-family:'Russo One',sans-serif;font-size:17px;color:var(--cyan)}
+.rules{display:grid;gap:6px;margin:10px 0 0;padding:0;list-style:none;font-size:18px}
+.rules li{background:rgba(255,255,255,.07);border-radius:8px;padding:7px 11px}
+.timer{height:8px;border-radius:5px;background:rgba(255,255,255,.15);overflow:hidden;margin-bottom:14px}
+.timer i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--cyan),var(--pink))}
+.q{font-size:clamp(26px,7vw,40px);font-weight:700;text-align:center;padding:18px 6px;line-height:1.35;min-height:110px;display:flex;align-items:center;justify-content:center}
+.qt{font-size:15px;opacity:.85;text-align:center}
+sup{font-size:.62em;line-height:0}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.2;margin:0 .15em;font-size:.92em}
+.fr>span{padding:0 .25em}.fr>span:first-child{border-bottom:.09em solid currentColor}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.o{font:inherit;font-size:clamp(20px,5.5vw,28px);font-weight:700;color:var(--paper);background:rgba(255,255,255,.08);border:2px solid var(--cyan);border-radius:12px;padding:16px 8px;cursor:pointer;min-height:68px}
+.o:hover:not(:disabled){background:rgba(46,242,255,.18)}
+.o.ok{background:rgba(61,255,176,.25);border-color:var(--ok)}.o.no{background:rgba(255,77,109,.3);border-color:var(--bad)}
+.o:disabled{cursor:default}
+.fb{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.09);font-size:17px}
+.fb strong{font-family:'Russo One',sans-serif;display:block;margin-bottom:4px}
+.big{font-family:'Russo One',sans-serif;font-size:clamp(30px,9vw,54px);margin:6px 0;font-style:italic}
+.win{color:var(--ok);text-shadow:0 0 18px var(--ok)}.lose{color:var(--bad);text-shadow:0 0 18px var(--bad)}
+@media(max-width:480px){.opts{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+h1 b{display:inline-block;background:linear-gradient(180deg,#7a3cff 0,#ff3da6 55%,#ffb23c 100%);-webkit-text-fill-color:#fff;color:#fff;border:4px solid #fff;border-radius:6px;padding:0 12px;transform:skew(-6deg);-webkit-text-stroke:0;box-shadow:5px 5px 0 var(--ink);font-family:Bungee,Impact,sans-serif;filter:none}
+.pre{font-family:Bungee,sans-serif;letter-spacing:5px;font-size:13px;color:var(--cyan);text-shadow:0 2px 6px #000a;margin-top:14px}
+.palms{position:fixed;left:0;right:0;bottom:0;height:40vh;z-index:-1;pointer-events:none}
+.stars .on{color:#ffd23c;text-shadow:0 0 10px #ffd23c}
+.mapbox{background:#0b3f66;border:3px solid #fff;border-radius:14px;padding:8px;margin:12px 0;box-shadow:0 0 0 4px var(--ink),0 10px 30px #0008}
+.mapbox svg{width:100%;max-height:400px;display:block}.pin{cursor:pointer}.pin text{pointer-events:none}
+.lbl{font-family:Rubik,sans-serif;font-weight:700;font-size:11px;fill:#fff;paint-order:stroke;stroke:#062a44;stroke-width:3px}
+.pin:focus-visible circle{stroke:#fff;stroke-width:4}
+.big.gold{background:linear-gradient(180deg,#fff2a8,#ffb800 60%,#c77700);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;-webkit-text-stroke:1px #5a3500;filter:drop-shadow(3px 3px 0 #000)}
+.q{background:rgba(0,0,0,.45);border-left:5px solid var(--pink);border-radius:8px}
+sup{font-size:.7em;line-height:0;vertical-align:baseline;position:relative;top:-.6em;margin-left:.08em}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:1em;margin:0 .25em;white-space:nowrap}
+.fr>span{padding:0 .35em;line-height:1.6}
+.fr>span:first-child{border-bottom:.08em solid currentColor;padding-bottom:.05em}
+.fr>span:last-child{padding-top:.05em}
+.q,.o,.rules li,.fb,.m{font-variant-numeric:lining-nums;font-feature-settings:"lnum"}
+.q{font-size:clamp(24px,6vw,34px);font-weight:600;line-height:1.5}
+.o{font-size:clamp(20px,5vw,26px);font-weight:600;line-height:1.5}
+.rules li{font-size:18px;line-height:1.7}
+.fb{font-size:17px;line-height:1.7}
+@media(max-width:480px){.q{font-size:23px}.o{font-size:20px}.fr{margin:0 .15em}}
+</style>
+</head>
+<body>
+<div class="sun" aria-hidden="true"></div>
+<svg class="palms" viewBox="0 0 800 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#14062a"><path d="M95 320C100 230 108 160 130 90l8 2C120 160 118 230 118 320z"/><g transform="translate(134 90)"><path d="M0 0C-40-30-90-20-120 20 -80 0-40-8 0 0z"/><path d="M0 0C-20-50-70-70-110-60 -60-50-30-30 0 0z"/><path d="M0 0C20-50 70-70 110-60 60-50 30-30 0 0z"/><path d="M0 0C40-30 90-20 120 20 80 0 40-8 0 0z"/><path d="M0 0C-10-60 10-80 0-90 20-70 10-30 0 0z"/></g><path d="M700 320C690 240 700 170 680 110l-8 2C690 170 680 240 678 320z"/><g transform="translate(676 110) scale(.9)"><path d="M0 0C-40-30-90-20-120 20 -80 0-40-8 0 0z"/><path d="M0 0C-20-50-70-70-110-60 -60-50-30-30 0 0z"/><path d="M0 0C20-50 70-70 110-60 60-50 30-30 0 0z"/><path d="M0 0C40-30 90-20 120 20 80 0 40-8 0 0z"/><path d="M0 0C-10-60 10-80 0-90 20-70 10-30 0 0z"/></g><path d="M0 320V292C100 272 200 296 300 286S520 272 620 292 760 286 800 282V320z"/></g></svg><main id="app"></main>
+<script>
+const R=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,pick=a=>a[R(0,a.length-1)];
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=R(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const mn=e=>e<0?'−'+(-e):''+e,P=(b,e)=>`${b}<sup>${mn(e)}</sup>`,X=(b,e)=>e===0?'1':e===1?b:P(b,e);
+const V=(a,e)=>e>=0?''+a**e:'1/'+a**(-e),ex=(s,c)=>[...new Set(c)].filter(e=>e!==s);
+const nz=(a,b)=>{let v;do v=R(a,b);while(v===0);return v};
+const OP='(?:\\d+|[A-Za-z])(?:<sup>[^<]*<\\/sup>)?';
+const FRE=new RegExp('(^|[^\\w])('+OP+')\\s?\\/\\s?('+OP+')(?!\\w)','g');
+const F=s=>s.replace(FRE,'$1<span class="fr"><span>$2</span><span>$3</span></span>');
+const mk=(q,ans,bad,h)=>{const o=[ans];bad.forEach(b=>{if(!o.includes(b)&&o.length<4)o.push(b)});return{q:F(q),ans:F(ans),o:sh(o).map(F),h:F(h)}};
+const letters=()=>sh(['a','b','x','y','c']).slice(0,2);
+const F2=(b,e1,c,e2)=>X(b,e1)+X(c,e2);
+const G2=neg=>()=>{const[b,c]=letters(),m=nz(-3,4),k=nz(-3,4),n=neg?pick([-3,-2,2,3]):pick([2,3,4]);
+ return mk(`Спрости: (${F2(b,m,c,k)})<sup>${mn(n)}</sup>`,F2(b,m*n,c,k*n),[F2(b,m*n,c,k),F2(b,m+n,c,k+n),F2(b,m*n,c,k+n),F2(b,m*n,c,-k*n)],`Степінь застосовуємо до кожного множника: показники множимо на ${mn(n)}.`)};
+const POW=(sA,sB)=>{};
+const gMul=()=>{const b=pick(['a','b','x','y','c']),m=nz(-6,7),n=nz(-6,7),s=m+n;
+ return mk(`${P(b,m)} · ${P(b,n)} = ?`,X(b,s),ex(s,[m*n,m-n,n-m,s+1,s-1,-s]).map(e=>X(b,e)),`При множенні з однаковою основою показники додаємо: ${mn(m)} + (${mn(n)}) = ${mn(s)}.`)};
+const gDiv=()=>{const b=pick(['a','b','x','y','c']),m=nz(-6,7),n=nz(-6,7),s=m-n;
+ return mk(`${P(b,m)} : ${P(b,n)} = ?`,X(b,s),ex(s,[m+n,n-m,m*n,s+1,s-1]).map(e=>X(b,e)),`При діленні показники віднімаємо: ${mn(m)} − (${mn(n)}) = ${mn(s)}.`)};
+const gNumM=()=>{let a,m,n;do{a=pick([2,3,5]);m=nz(-4,5);n=nz(-4,5)}while(Math.abs(m+n)>3);const s=m+n;
+ return mk(`Обчисли: ${P(a,m)} · ${P(a,n)}`,V(a,s),ex(s,[m*n,m-n,s+1,s-1,-s]).map(e=>V(a,e)),`${a}<sup>${mn(m)}+(${mn(n)})</sup> = ${P(a,s)} = ${V(a,s)}.`)};
+const gNumD=()=>{let a,m,n;do{a=pick([2,3,5]);m=nz(-4,5);n=nz(-4,5)}while(Math.abs(m-n)>3);const s=m-n;
+ return mk(`Обчисли: ${P(a,m)} : ${P(a,n)}`,V(a,s),ex(s,[m+n,n-m,s+1,s-1,-s]).map(e=>V(a,e)),`${a}<sup>${mn(m)}−(${mn(n)})</sup> = ${P(a,s)} = ${V(a,s)}.`)};
+const gPow2=()=>{const b=pick(['a','b','x','y','c']),m=nz(-4,4),n=nz(-4,4),s=m*n;
+ return mk(`(${X(b,m)})<sup>${mn(n)}</sup> = ?`,X(b,s),ex(s,[m+n,m-n,-s,s+1,s-1]).map(e=>X(b,e)),`Степінь степеня: показники множимо ${mn(m)} · (${mn(n)}) = ${mn(s)}.`)};
+const gPowN=()=>{let a,m,n;do{a=pick([2,3]);m=pick([-3,-2,-1,2,3]);n=pick([-3,-2,-1,2,3])}while(Math.abs(m*n)>4);const s=m*n;
+ return mk(`Обчисли: (${P(a,m)})<sup>${mn(n)}</sup>`,V(a,s),ex(s,[m+n,m-n,-s,s+1,s-1]).map(e=>V(a,e)),`${a}<sup>${mn(m)}·(${mn(n)})</sup> = ${P(a,s)} = ${V(a,s)}.`)};
+const BS={2:4,3:3,5:3,7:2},TT=(b,k,e)=>P(b**k,e);
+const fr=(n,d)=>`<span class="fr"><span>${n}</span><span>${d}</span></span>`;
+const gImg=()=>mk(`Обчисли: ${fr(P(5,-9)+' · '+P(25,-2),P(125,-4))}`,'1/5',['5','−5','1/25','25','1/125'],`25 = 5<sup>2</sup>, 125 = 5<sup>3</sup>. Чисельник: 5<sup>−9</sup> · 5<sup>−4</sup> = 5<sup>−13</sup>. Знаменник: (5<sup>3</sup>)<sup>−4</sup> = 5<sup>−12</sup>. Ділимо: 5<sup>−13−(−12)</sup> = 5<sup>−1</sup> = 1/5.`);
+const gBase=mode=>()=>{for(let t=0;t<5000;t++){
+ const b=pick([2,3,5,7]),km=BS[b],nt=mode==='b'||mode==='c'?4:mode==='d'?2:3;
+ const sg=mode==='b'?[1,1,-1,-1]:mode==='c'?[1,1,1,-1]:mode==='d'?[1,-1]:[1,1,-1];
+ const ks=Array.from({length:nt},()=>R(1,km)),es=Array.from({length:nt},()=>nz(-6,4));
+ if(!ks.some(k=>k>1))continue;
+ const n=pick([2,3,-1,-2]),m=mode==='d'?n:1,core=ks.reduce((a,k,i)=>a+sg[i]*k*es[i],0),res=core*m;
+ if(mode==='c'?(res===0||Math.abs(res)>6):Math.abs(res)>3)continue;
+ const T=i=>TT(b,ks[i],es[i]);let body;
+ if(mode==='a')body=fr(T(0)+' · '+T(1),T(2));
+ else if(mode==='b')body=fr(T(0)+' · '+T(1),T(2)+' · '+T(3));
+ else if(mode==='c')body=fr(T(0)+' · '+T(1)+' · '+T(2),T(3));
+ else body='('+fr(T(0),T(1))+')<sup>'+mn(n)+'</sup>';
+ const q=(mode==='c'?`Запиши як степінь числа ${b}: `:'Обчисли: ')+body;
+ const naive=es.reduce((a,e,i)=>a+sg[i]*e,0)*m,allp=ks.reduce((a,k,i)=>a+k*es[i],0)*m;
+ const bad=[naive,allp,res+1,res-1,res+2,-res].filter(e=>Math.abs(e)<=9);
+ const f=mode==='c'?e=>X(b,e):e=>V(b,e);
+ const conv=[...new Set(ks.filter(k=>k>1))].sort().map(k=>`${b**k} = ${b}<sup>${k}</sup>`).join(', ');
+ const calc=ks.map((k,i)=>`${i?(sg[i]<0?' − ':' + '):(sg[i]<0?'−':'')}${k}·(${mn(es[i])})`).join('');
+ return mk(q,f(res),ex(res,bad).map(f),`Зведи до основи ${b}: ${conv}. Показники: ${mode==='d'?n+'·(':''}${calc}${mode==='d'?')':''} = ${mn(res)}.`)}
+ return gMul()};
+const CT=['Lummox County','Kelly County','Leonard County','Vice Dale County','Mariana County','Leonida Keys'];
+const PP=[[150,50],[85,140],[195,130],[210,225],[125,290],[55,352]];
+const L=[
+{name:'Прибуття в порт',sub:'Нульовий і від’ємний показник',n:6,brief:'Ти щойно прибув до міста. Щоб отримати перші гроші, розбери вантаж: числа з нульовим і від’ємним показником.',rules:['a<sup>0</sup> = 1 (a ≠ 0)','a<sup>−n</sup> = 1 / a<sup>n</sup>','(a/b)<sup>−n</sup> = (b/a)<sup>n</sup>'],g:[
+()=>{const a=pick([2,3,5,7,9,12,-4,-6,-3]);return mk(`Обчисли: ${a<0?'('+mn(a)+')':a}<sup>0</sup>`,'1',['0',mn(a),'−1'],'Будь-яке число, окрім 0, у нульовому степені дорівнює 1.')},
+()=>{const b=pick([2,3,4,5,10]),n=pick([2,3]);return mk(`Обчисли: ${P(b,-n)}`,`1/${b**n}`,[`−${b**n}`,`1/${b*n}`,`${b**n}`,`−${b*n}`],`${b}<sup>−${n}</sup> = 1/${b}<sup>${n}</sup> = 1/${b**n}.`)},
+()=>{const[a,b,n]=pick([[2,3,2],[1,2,3],[3,4,2],[2,5,2],[1,3,2],[2,3,3]]);const ans=a===1?`${b**n}`:`${b**n}/${a**n}`;
+ return mk(`Обчисли: (${a}/${b})<sup>−${n}</sup>`,ans,[a===1?`1/${b**n}`:`${a**n}/${b**n}`,`−${ans}`,`${b*n}/${a*n}`,`${a**n}/${b*n}`],`Перевертаємо дріб і міняємо знак показника: (${b}/${a})<sup>${n}</sup> = ${ans}.`)},
+()=>{const b=pick([2,3,5]),n=pick([2,3]);return mk(`Запиши 1/${b**n} як степінь з основою ${b}`,P(b,-n),[P(b,n),'−'+P(b,n),P(b,-(n+1)),P(n,-b)],`1/${b}<sup>${n}</sup> = ${b}<sup>−${n}</sup>.`)},
+()=>{const n=R(2,4);return mk(`Запиши ${'0,'+'0'.repeat(n-1)+'1'} як степінь числа 10`,P(10,-n),[P(10,n),P(10,-(n+1)),P(10,-(n-1))],`Кількість нулів після коми разом з одиницею — це ${n}, тому 10<sup>−${n}</sup>.`)}]},
+{name:'Нічна гонка',sub:'Множення і ділення степенів',n:6,brief:'Гонка по набережній! Швидко рахуй показники: однакові основи множимо і ділимо.',rules:['a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>','a<sup>m</sup> : a<sup>n</sup> = a<sup>m−n</sup>'],g:[gMul,gDiv,gNumM,gNumD,
+()=>{const b=pick(['a','x','y','c']),m=R(2,5);return mk(`${P(b,m)} · ${P(b,-m)} = ?`,'1',['0',P(b,2*m),P(b,-2*m),P(b,-m*m)],`${b}<sup>${m}+(−${m})</sup> = ${b}<sup>0</sup> = 1.`)}]},
+{name:'Висота хмарочоса',sub:'Степінь степеня, добутку й частки',n:6,brief:'Піднімайся на дах! На кожному поверсі — степінь, який треба «розкрити».',rules:['(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>','(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup>','(a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup>'],g:[gPow2,G2(false),gPowN,
+()=>{const[b,c]=letters(),n=R(2,4);return mk(`Спрости: (${b}/${c})<sup>−${n}</sup>`,`${P(c,n)}/${P(b,n)}`,[`${P(b,n)}/${P(c,n)}`,`−${P(c,n)}/${P(b,n)}`,`${P(c,n)}/${P(b,-n)}`],`Від’ємний показник перевертає дріб: (${c}/${b})<sup>${n}</sup>.`)},
+()=>{const[a,b]=pick([[2,3],[2,5],[3,4],[2,7]]);return mk(`Обчисли: (${a}·${b})<sup>−2</sup>`,`1/${(a*b)**2}`,[`1/${a*b*2}`,`1/${a*a+b*b}`,`${(a*b)**2}`,`−${(a*b)**2}`],`(${a}·${b})<sup>−2</sup> = 1/${a*b}<sup>2</sup> = 1/${(a*b)**2}.`)}]},
+{name:'Склад у Вайс-Сіті',sub:'Різні основи → одна основа',n:7,brief:'На складі ящики з числами 4, 8, 25, 27… Спершу зведи все до однієї основи, потім рахуй показники.',rules:['Зведи до однієї основи: 4 = 2², 8 = 2³, 25 = 5², 125 = 5³, 9 = 3², 27 = 3³','(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>, тому 25<sup>−2</sup> = 5<sup>−4</sup>','У дробі: показник чисельника мінус показник знаменника'],g:[gImg,gBase('a'),gBase('a'),gBase('b'),gBase('b'),gBase('c'),gBase('d')]},
+{name:'Швидкий мікс',sub:'Комбіновані вирази',n:6,brief:'Диспетчер видає складні замовлення: кілька правил в одному виразі. Дій по порядку.',rules:['Спочатку степінь степеня','Потім множення й ділення степенів','Приведення до однієї основи: 25 = 5², 125 = 5³, 8 = 2³, 27 = 3³'],g:[
+()=>{const b=pick(['a','x','y','c']),m=nz(-5,6),n=nz(-5,6),k=nz(-5,6),s=m+n-k;return mk(`(${P(b,m)} · ${P(b,n)}) : ${P(b,k)} = ?`,X(b,s),ex(s,[m+n+k,m-n-k,m*n-k,s+1,s-1]).map(e=>X(b,e)),`Показники: ${mn(m)} + (${mn(n)}) − (${mn(k)}) = ${mn(s)}.`)},
+()=>{const[a,b,ans]=pick([[2,4,'3/4'],[2,3,'5/6'],[3,6,'1/2'],[2,6,'2/3'],[4,4,'1/2'],[3,3,'2/3']]);return mk(`Обчисли: ${P(a,-1)} + ${P(b,-1)}`,ans,[`1/${a+b}`,`1/${a*b}`,`2/${a+b}`,`${a+b}`],`1/${a} + 1/${b} = ${ans}.`)},
+()=>{let a,m,n,k;do{a=pick([2,3]);m=nz(-3,4);n=nz(-3,4);k=nz(-3,4)}while(Math.abs(m+n+k)>3);const s=m+n+k;return mk(`Обчисли: ${P(a,m)} · ${P(a,n)} · ${P(a,k)}`,V(a,s),ex(s,[m+n-k,m-n+k,s+1,s-1,-s]).map(e=>V(a,e)),`Додаємо показники: ${mn(s)}, тому ${V(a,s)}.`)},
+()=>{const b=pick(['a','x','y']),m=pick([-3,-2,2,3]),n=pick([-2,2,3]),k=nz(-4,4),s=m*n+k;return mk(`(${P(b,m)})<sup>${mn(n)}</sup> · ${X(b,k)} = ?`,X(b,s),ex(s,[m+n+k,m*n-k,m*n,s+1]).map(e=>X(b,e)),`Спочатку ${mn(m)}·(${mn(n)}) = ${mn(m*n)}, потім ${mn(m*n)} + (${mn(k)}) = ${mn(s)}.`)},gPowN,gBase('a'),gBase('b')]},
+{name:'Фінальний бос: Експонента',sub:'Складні завдання без права на помилку',n:7,brief:'Бос міста тримає останній сейф. Тут усі правила разом. Три помилки — і ти «під арештом».',rules:['Усі правила зі шпаргалки','Порівнюй числа, приводячи їх до дробів','Знак показника не змінює знак основи'],g:[G2(true),
+()=>{const b=pick(['a','x','y']),m=nz(-3,4),n=pick([-3,-2,2,3]),k=nz(-4,4),l=nz(-4,4),s=m*n+k-l;return mk(`((${P(b,m)})<sup>${mn(n)}</sup> · ${X(b,k)}) : ${X(b,l)} = ?`,X(b,s),ex(s,[m+n+k-l,m*n-k-l,m*n+k+l,s+1,s-1]).map(e=>X(b,e)),`${mn(m)}·(${mn(n)}) + (${mn(k)}) − (${mn(l)}) = ${mn(s)}.`)},
+()=>{const[x,y,w]=pick([[[2,-3],[3,-2],0],[[5,-2],[2,-5],0],[[3,-3],[2,-4],1],[[4,-2],[2,-3],1],[[10,-2],[5,-3],0]]);
+ const fa=x[0]**-x[1],fb=y[0]**-y[1];return mk(`Що більше: ${P(x[0],x[1])} чи ${P(y[0],y[1])}?`,fa<fb?P(x[0],x[1]):P(y[0],y[1]),[fa<fb?P(y[0],y[1]):P(x[0],x[1]),'Вони рівні','Порівняти неможливо'],`${P(x[0],x[1])} = 1/${fa}, ${P(y[0],y[1])} = 1/${fb}. Більший той дріб, у якого менший знаменник.`)},
+()=>{const[a,m,b,n,ans,bad]=pick([[2,-1,3,-1,'6/5',['5/6','1/5','5','6']],[2,-2,2,-1,'4/3',['3/4','1/3','3','4']],[3,-1,6,-1,'2',['1/2','1/9','9','−2']],[2,-1,2,-1,'1',['2','1/2','0','4']]]);
+ return mk(`Обчисли: (${P(a,m)} + ${P(b,n)})<sup>−1</sup>`,ans,bad,`Спершу додай дроби в дужках, потім переверни результат.`)},
+()=>{const b=pick(['a','x','y']),m=nz(-4,5),n=nz(-3,4),k=pick([2,3]),s=m+n-2*k;return mk(`(${X(b,m)} · ${X(b,n)}) : (${P(b,k)})<sup>2</sup> = ?`,X(b,s),ex(s,[m+n-k,m+n+2*k,m*n-2*k,s+1,s-1]).map(e=>X(b,e)),`(${b}<sup>${k}</sup>)<sup>2</sup> = ${b}<sup>${2*k}</sup>; ${mn(m)} + (${mn(n)}) − ${2*k} = ${mn(s)}.`)},
+gPowN,G2(false),gBase('c'),gBase('d')]}
+];
+const TL=[60,60,75,90,90,120];
+const app=document.getElementById('app');
+let S={unlocked:1,total:0,stars:{}};
+try{const d=JSON.parse(localStorage.getItem('stepeni6v2')||'null');if(d)S={...S,...d}}catch(e){}
+const save=()=>{try{localStorage.setItem('stepeni6v2',JSON.stringify(S))}catch(e){}};
+let G=null,tm=null;
+const rulesHtml=r=>`<ul class="rules">${r.map(x=>`<li>${F(x)}</li>`).join('')}</ul>`;
+const allRules=['a<sup>0</sup> = 1 (a ≠ 0)','a<sup>−n</sup> = 1 / a<sup>n</sup>','a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>','a<sup>m</sup> : a<sup>n</sup> = a<sup>m−n</sup>','(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>','(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup>','(a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup>','(a/b)<sup>−n</sup> = (b/a)<sup>n</sup>','Різні основи: 4 = 2², 8 = 2³, 25 = 5², 125 = 5³, 9 = 3², 27 = 3³'];
+const rank=s=>s===0?'★ Легенда':s===1?'Професіонал':'Новачок';
+function mapSvg(){return `<div class="mapbox"><svg viewBox="0 0 300 390" role="img" aria-label="Карта Леоніди"><rect width="300" height="390" fill="#0b3f66"/><path d="M120 20C190 10 235 60 240 120 250 180 240 240 215 270 190 300 160 310 140 330 120 345 80 372 40 366 25 350 50 320 80 300 70 250 40 200 45 150 50 90 80 30 120 20Z" fill="#3f8f6b" stroke="#e8d9a8" stroke-width="4"/>${L.map((m,i)=>{const open=i<S.unlocked,done=S.stars[i]!==undefined,[x,y]=PP[i],c=done?'#3dffb0':open?'#ff3da6':'#7b8794';return `<g class="pin" ${open?`data-i="${i}" tabindex="0" role="button" aria-label="${m.name}" onkeydown="if(event.key==='Enter')brief(${i})"`:''}><circle cx="${x}" cy="${y}" r="15" fill="${c}" stroke="#1a0a33" stroke-width="3"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="14" fill="#1a0a33" font-family="Bungee,sans-serif">${done?'✓':i+1}</text><text class="lbl" x="${x}" y="${y+30}" text-anchor="middle">${CT[i]}</text></g>`}).join('')}</svg></div>`}
+function home(){clearInterval(tm);
+ app.innerHTML=`<div class="pre">WELCOME TO LEONIDA</div><h1>СТЕПЕНІ <b>VI</b></h1><p class="tag">Властивості степеня з цілим показником · 8 клас. Виконуй місії, заробляй гроші й не набирай три «зірки розшуку».</p>
+ <div class="bar panel"><span>Твій рахунок</span><span class="cash">$${S.total.toLocaleString('uk')}</span></div>
+ ${mapSvg()}<ul class="missions" style="margin-top:12px">${L.map((m,i)=>{const open=i<S.unlocked,done=S.stars[i]!==undefined;return`<li><button class="m" data-i="${i}" ${open?'':'disabled'}><span class="n">${i+1}</span><span><span class="t">${m.name}</span><br><span class="s">${open?m.sub:'Закрито: пройди попередню місію'}</span></span>${done?`<span class="r">${rank(S.stars[i])}</span>`:''}</button></li>`}).join('')}</ul>
+ <details class="panel"><summary>Шпаргалка: усі правила</summary>${rulesHtml(allRules)}</details>`;
+ app.querySelectorAll('.m').forEach(b=>b.onclick=()=>brief(+b.dataset.i));app.querySelectorAll('.pin[data-i]').forEach(p=>p.onclick=()=>brief(+p.dataset.i));}
+function brief(i){const m=L[i];
+ app.innerHTML=`<div class="pre">${CT[i]}</div><h1 style="font-size:clamp(30px,9vw,56px)">${m.name}</h1><div class="panel"><p style="font-size:18px;margin-top:0">📞 Диспетчер: «${m.brief}»</p><p>У місії ${m.n} запитань і по ${TL[i]} секунд на кожне. Час, що вийшов, рахується як помилка. Кожна помилка додає зірку розшуку.</p>${rulesHtml(m.rules)}<div class="row"><button class="btn" id="go">Почати місію</button><button class="btn ghost" id="bk">До карти</button></div></div>`;
+ document.getElementById('go').onclick=()=>start(i);document.getElementById('bk').onclick=home;}
+function start(i){const m=L[i],o=sh(m.g.map((_,k)=>k));
+ G={i,qs:Array.from({length:m.n},(_,k)=>m.g[o[k%o.length]]()),k:0,w:0,cash:0,streak:0,done:false};ask();}
+const stars=w=>`<span class="stars" aria-label="Зірок розшуку: ${w} з 3">${[0,1,2].map(j=>`<span class="${j<w?'on':'off'}">★</span>`).join('')}</span>`;
+function ask(){const q=G.qs[G.k];const T0=TL[G.i];G.done=false;
+ app.innerHTML=`<div class="panel"><div class="bar"><span>${L[G.i].name}</span>${stars(G.w)}<span class="cash">$${G.cash}</span></div>
+ <div class="qt">Запитання ${G.k+1} з ${G.qs.length}${G.streak>1?` · серія ×${G.streak}`:''}</div>
+ <div class="timer"><i id="tb"></i></div><div class="q">${q.q}</div>
+ <div class="opts">${q.o.map((x,j)=>`<button class="o" data-j="${j}">${x}</button>`).join('')}</div><div id="fb"></div></div>`;
+ app.querySelectorAll('.o').forEach(b=>b.onclick=()=>answer(+b.dataset.j));
+ clearInterval(tm);const t0=Date.now();
+ tm=setInterval(()=>{const left=T0-(Date.now()-t0)/1000;const tb=document.getElementById('tb');if(tb)tb.style.width=Math.max(0,left/T0*100)+'%';if(left<=0){answer(-1)}},100);}
+function answer(j){if(G.done)return;G.done=true;clearInterval(tm);
+ const q=G.qs[G.k],ok=j>=0&&q.o[j]===q.ans;
+ app.querySelectorAll('.o').forEach((b,x)=>{b.disabled=true;if(q.o[x]===q.ans)b.classList.add('ok');else if(x===j)b.classList.add('no')});
+ let msg;if(ok){G.streak++;const g=100+Math.min(G.streak-1,5)*20;G.cash+=g;msg=`<strong style="color:var(--ok)">Чисто! +$${g}</strong>`}
+ else{G.streak=0;G.w++;msg=`<strong style="color:var(--bad)">${j<0?'Час вийшов!':'Помилка!'} Правильна відповідь: ${q.ans}</strong>`}
+ const over=G.w>=3,last=G.k===G.qs.length-1;
+ document.getElementById('fb').innerHTML=`<div class="fb">${msg}${q.h}</div><div class="row"><button class="btn" id="nx">${over?'Що далі?':last?'Завершити місію':'Далі'}</button></div>`;
+ const bar=app.querySelector('.bar');bar.querySelector('.stars').outerHTML=stars(G.w);bar.querySelector('.cash').textContent='$'+G.cash;
+ const nx=document.getElementById('nx');nx.focus();
+ nx.onclick=()=>{if(over||last)finish(over);else{G.k++;ask()}};}
+function finish(fail){
+ if(!fail){S.total+=G.cash;if(S.stars[G.i]===undefined||G.w<S.stars[G.i])S.stars[G.i]=G.w;if(G.i+1<L.length)S.unlocked=Math.max(S.unlocked,G.i+2);save()}
+ const lastM=G.i===L.length-1;
+ app.innerHTML=`<div class="panel" style="text-align:center"><div class="big ${fail?'lose':'win gold'}">${fail?'АРЕШТОВАНО':'МІСІЮ ВИКОНАНО'}</div><div class="pre">${fail?'BUSTED':'MISSION PASSED · RESPECT +'}</div>
+ <p style="font-size:19px">${fail?'Три зірки розшуку — місію провалено. Перечитай правила й спробуй ще раз.':`Заробіток: <b class="cash">$${G.cash}</b> · Звання: <b>${rank(G.w)}</b>${lastM?'<br>Ти пройшов усе місто. Степені більше не страшні!':''}`}</p>
+ ${fail?rulesHtml(L[G.i].rules):''}
+ <div class="row" style="justify-content:center"><button class="btn" id="a1">${fail?'Спробувати ще':'Повторити'}</button>${!fail&&!lastM?'<button class="btn" id="a2">Наступна місія</button>':''}<button class="btn ghost" id="a3">До карти</button></div></div>`;
+ document.getElementById('a1').onclick=()=>start(G.i);const a2=document.getElementById('a2');if(a2)a2.onclick=()=>brief(G.i+1);document.getElementById('a3').onclick=home;}
+home();
+</script>
+</body>
+</html>
